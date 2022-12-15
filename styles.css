@@ -16,11 +16,21 @@ body {
 
 header {
   color: #e455c3;  
-  font-size: x-large;
+  font-size: 200%;
   padding: 1em;
   font-weight: bold;
  }
 
+nav {
+  background-color: #fff;
+  border: 5px solid rgb(171, 223, 244);
+  font-size: 120%;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 1em;
+  text-align: center;
+ }
 
  #root {
   display: grid;
