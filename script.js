@@ -58,7 +58,37 @@ rootElement.innerHTML = showProducts;
 const order =[];
 
 function addToOrder(a){
-    order.push({...products[a]});
+    const amount = document.getElementsByClassName('amount')[a].value;
+    order.push({...products[a], quantity: amount, totalPrice: amount * products[a].price});
+    orderDetail();
+}  
+function delElement(a){
+    order.splice(a, 1);
     orderDetail();
 }
-
+function orderDetail() {
+    let j = 0,
+      total = 0;
+    document.getElementById("count").innerHTML = order.length;
+    if (order.length == 0) {
+      document.getElementById("cartItem").innerHTML = "Your cart is empty";
+      document.getElementById("total").innerHTML = "$ " + 0 + ".00";
+    } else {
+      document.getElementById("cartItem").innerHTML = order.map((items) => {
+        const { title, quantity, price, totalPrice, action } = items;
+  
+        total = total + totalPrice;
+        document.getElementById("total").innerHTML = "$ " + total + ".00";
+        return (
+          `<div class='cart-item'>
+            <p style='font-size:12px;'>${title}</p>
+            <h2 style='font-size: 15px;'> ${quantity}</h2>
+            <h2 style='font-size: 15px;'>$ ${price}.00</h2>
+            <h2 style='font-size: 15px;'>$ ${totalPrice}.00</h2>
+            <button onclick='delElement(${j++})'>Remove</button>
+          </div>`
+        );
+      }).join('');
+    }
+  }
+  
