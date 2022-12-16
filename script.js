@@ -31,8 +31,8 @@ let i = 0;
 const products = [...new Set(cakes.map(function(item) {
 return item;
 }))];
-const rootElement = document.getElementById('root');
-rootElement.innerHTML = products
+const bakeryElement = document.getElementById('bakery');
+bakeryElement.innerHTML = products
 .map((item) => {
   const { image, title, price } = item;
   return `
@@ -76,7 +76,6 @@ function delElement(a){
 function orderDetail() {
   let j = 0;
   let total = 0;
-  document.getElementById("count").innerHTML = order.length;
   
   if (order.length == 0) {
     document.getElementById("cartItem").innerHTML = "Your cart is empty";
