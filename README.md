@@ -1,4 +1,4 @@
-﻿# shopping-cart-exercise
+﻿# shopping-cart
 
 Instructions
 
