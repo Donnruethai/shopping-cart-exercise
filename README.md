@@ -1,6 +1,7 @@
 ﻿# shopping-cart-exercise
 
 Instructions
+
 1 on your device, open DreamChaser Cakes Shop website => https://donnruethai.github.io/shopping-cart-exercise/
 
 2 You will see the products available
