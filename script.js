@@ -77,17 +77,19 @@ function orderDetail() {
   let j = 0;
   let total = 0;
   document.getElementById("count").innerHTML = order.length;
+  
   if (order.length == 0) {
     document.getElementById("cartItem").innerHTML = "Your cart is empty";
-    document.getElementById("quantity").innerHTML = "$ " + 0 + ".00";
-    document.getElementById("total").innerHTML = "$ " + 0 + ".00";
-    document.getElementById("cost").innerHTML = "$ " + 0 + ".00";
+    document.getElementById("quantity").innerHTML = "0";
+    document.getElementById("total").innerHTML = "$ 0.00";
+    document.getElementById("cost").innerHTML = "$ 0.00";
   } else {
     document.getElementById("cartItem").innerHTML = order.map((items) => {
       const { title, quantity, price, cost} = items;
 
       // Update the total price by adding the price of the current item
       total += price;
+      
       document.getElementById("total").innerHTML = "$ " + total + ".00";
 
       return (
