@@ -24,6 +24,18 @@ const cakes = [
       image: 'images/macaron.jpg',
       title: 'Macaron',
       price: 9,
+  },
+  {
+    id: 4,
+    image: 'images/nutella.jpg',
+    title: 'Nutella Cake',
+    price: 40,
+  },
+  {
+    id: 5,
+    image: 'images/cakes.jpg',
+    title: 'Special Cake',
+    price: 75,
   }
 ];
 
