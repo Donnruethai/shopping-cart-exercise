@@ -11,29 +11,24 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: white;
   
 }
 
 header {
   color: #e455c3;  
-  font-size: 200%;
+  font-size: x-large;
   padding: 1em;
   font-weight: bold;
  }
 
 nav {
-  background-color: #fff;
-  color:rgb(255, 0, 153)
-  border: 5px solid rgb(171, 223, 244);
-  font-size: 120%;
-  width: 30%;
+  background-color: white;
   margin: 0 auto;
-  border-radius: 15px;
   padding: 1em;
-  text-align: center;
- }
+}
 
- #root {
+#root {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
@@ -47,6 +42,22 @@ nav {
   
 }
 
+.amount {
+  width: 100px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+  border-radius: 3px;
+  margin: 10px 10px;
+}
+
 .order-details {
   display: flex;
   justify-content: space-between;
@@ -56,9 +67,9 @@ nav {
 
 }
 
-.buttom {
+.bottom {  
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
   padding: 10px 0px;
   border-top: 2px solid rgb(204, 29, 143);
 }

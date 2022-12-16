@@ -1,44 +1,41 @@
-// cakes array
+//
 
 const cakes = [
-    {
-        id: 0,
-        image: 'images/brownie.jpg',
-        title: 'Brownie',
-        price: 15,
-    },
-    {
-        id: 1,
-        image: 'images/red.jpg',
-        title: 'Red Velvet Cake',
-        price: 60,
-    },
-    {
-        id: 2,
-        image: 'images/cupchoc.jpg',
-        title: 'Chocolate Cupcake',
-        price: 8,
-    },
-    {
-        id: 3,
-        image: 'images/macaron.jpg',
-        title: 'Macaron',
-        price: 9,
-    }
+  {
+      id: 0,
+      image: 'images/brownie.jpg',
+      title: 'Brownie',
+      price: 15,
+  },
+  {
+      id: 1,
+      image: 'images/red.jpg',
+      title: 'Red Velvet Cake',
+      price: 60,
+  },
+  {
+      id: 2,
+      image: 'images/cupchoc.jpg',
+      title: 'Chocolate Cupcake',
+      price: 8,
+  },
+  {
+      id: 3,
+      image: 'images/macaron.jpg',
+      title: 'Macaron',
+      price: 9,
+  }
 ];
-
-// Show all products
 
 let i = 0;
 const products = [...new Set(cakes.map(function(item) {
-  return item;
+return item;
 }))];
 const rootElement = document.getElementById('root');
-
-let showProducts = "";
-for (const item of products) {
+rootElement.innerHTML = products
+.map((item) => {
   const { image, title, price } = item;
-  showProducts += `
+  return `
     <div class='box'>
       <div class='img-box'>
         <img class='images' src=${image}></img>
@@ -49,9 +46,64 @@ for (const item of products) {
         <input class='amount' type="number" min="1" >
         <button onclick='addToOrder(${i++})'>Add to cart</button>
       </div>
-    </div>`;
+    </div>
+  `;
+})
+.join('');
+
+const order =[];
+
+function addToOrder(index) {
+const item = products[index];
+const quantityInput = document.getElementsByClassName("amount")[index];
+const quantity = parseInt(quantityInput.value);
+const cost = quantity * item.price;
+order.push({
+  title: item.title,
+  quantity: quantity,
+  price: item.price,
+  cost: cost,
+  
+});
+orderDetail();
 }
 
-rootElement.innerHTML = showProducts;
+function delElement(a){
+  order.splice(a, 1);
+  orderDetail();
+}
+
+function orderDetail() {
+  let j = 0;
+  let total = 0;
+  document.getElementById("count").innerHTML = order.length;
+  if (order.length == 0) {
+    document.getElementById("cartItem").innerHTML = "Your cart is empty";
+    document.getElementById("quantity").innerHTML = "$ " + 0 + ".00";
+    document.getElementById("total").innerHTML = "$ " + 0 + ".00";
+    document.getElementById("cost").innerHTML = "$ " + 0 + ".00";
+  } else {
+    document.getElementById("cartItem").innerHTML = order.map((items) => {
+      const { title, quantity, price, cost} = items;
+
+      // Update the total price by adding the price of the current item
+      total += price;
+      document.getElementById("total").innerHTML = "$ " + total + ".00";
+
+      return (
+          `<div class='cart-item'>
+          <p style='font-size:13px;'>${title}</p>
+          <p style='font-size:12px;'>${quantity}</p>
+          <h2 style='font-size: 13px;'>$ ${price}.00</h2>
+          <p style='font-size:12px;'>$ ${cost}</p>
+          <button onclick='delElement("+(j++)+")'>Remove</button>
+        </div>`
+      );
+    }).join("");
+  }
+}
+
+
+
 
 
