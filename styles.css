@@ -25,6 +25,12 @@ header {
   margin: 0 auto;  
  }
 
+ /* pseudo classes */
+a:link { color: rgb(137, 152, 235); } /* not visited */
+a:visited { color: #f330d6; } /* visited */
+a:hover { color: pink; } /* hover over */
+
+
 nav {
   background-color: white;
   margin: 0 auto;
@@ -75,6 +81,3 @@ nav {
   padding: 10px 0px;
   border-top: 2px solid rgb(204, 29, 143);
 }
-
-
-

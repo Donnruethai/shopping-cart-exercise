@@ -1,5 +1,3 @@
-//
-
 const cakes = [
   {
       id: 0,
@@ -60,6 +58,7 @@ bakeryElement.innerHTML = products
       </div>
     </div>
   `;
+  
 })
 .join('');
 
